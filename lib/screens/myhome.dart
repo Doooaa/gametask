@@ -12,7 +12,7 @@ class Myhome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Grid View Example'),
+        title: Text('spy game'),
       ),
       body: GridView.builder(
         itemCount: 4,

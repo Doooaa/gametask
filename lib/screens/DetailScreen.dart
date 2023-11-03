@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:gametask/main.dart';
 import 'package:flutter/material.dart';
 import 'package:gametask/screens/GridItem.dart';
@@ -44,17 +43,28 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.blueAccent,
-                    child: Center(
-                      child: Text(
-                      towContanerName[index][1].toString(),
-                        style: TextStyle(color: Colors.white),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GOtoSubCategoryScreen([index,1]),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Color.fromARGB(255, 68, 137, 255),
+                      child: Center(
+                        child: Text(
+                          towContanerName[index][1].toString(),
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
+                  
                 ],
               )
             ],

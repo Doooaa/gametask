@@ -1,4 +1,3 @@
-import 'package:gametask/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:gametask/screens/myhome.dart';
 
@@ -8,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      onGenerateRoute: routeGenerator,
+      // onGenerateRoute: routeGenerator,
       home: Myhome(),
     );
   }
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
 
 
 
-List towContanerName = [["a pet","Non-domestic animal"],["Sweet","sour"]];
+List towContanerName = [["a pet","Non-domestic animal"],["Sweet","sour"],["Root Vegetables","non Root Vegetables"],["pla","pla"]];
 
 void addItemToFormItems(String name,dynamic url) {
   Map<String, dynamic> item = {
@@ -29,7 +28,6 @@ void addItemToFormItems(String name,dynamic url) {
 }
 
 var Newname;
-
 List<Map<String,dynamic>> formItems = [];
 
 

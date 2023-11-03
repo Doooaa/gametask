@@ -4,15 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gametask/screens/playScrenn.dart';
 import 'package:gametask/screens/showItemInform.dart';
 
-
-
-
-// String getRandomNumber() {
-//   Random random = Random();
-//   int randomNumber = random.nextInt(animals_pet.length);
-//   return animals_pet[randomNumber];
-// }
-
+ String? word;
 GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 
@@ -43,134 +35,137 @@ class _GOtoSubCategoryScreenState extends State<GOtoSubCategoryScreen> {
       body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Scaffold(
-            body: Column(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(Icons.forward_outlined)),
-                  IconButton(
-                      onPressed: () {
-                        showModalBottomSheet(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return Container(
-                              width: double.infinity,
-                              padding: EdgeInsets.all(16.0),
-                              child: Form(
-                                key: _formKey,
-                                child: Column(
-                                  children: <Widget>[
-                                    TextFormField(
-                                      decoration:
-                                          InputDecoration(labelText: 'Name'),
-                                      validator: (value) {
-                                        value as String;
-                                        if (value.isEmpty ||
-                                            value.length < 3 ||
-                                            value.length > 20) {
-                                          return "name must be more than 3 and less 20";
-                                        }
-                                        setState(() {
-                                          Newname = value;
-                                        });
-                                        return null;
-                                      },
-                                    ),
-                                    SizedBox(height: 20),
-                                    Expanded(
-                                      child: Row(
-                                        // mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          InkWell(
-                                            child: Image.asset(
-                                              "images/doaa2.jpg",
-                                              width: 100,
-                                              height: 100,
-                                            ),
-                                            onTap: () {
-                                              setState(() {
-                                                imageValue = 0;
-                                              });
-                                            },
-                                          ),
-                                          InkWell(
-                                            child: Image.asset(
-                                              "images/doaa.jpg",
-                                              width: 100,
-                                              height: 100,
-                                            ),
-                                            onTap: () {
-                                              setState(() {
-                                                imageValue = 1;
-                                              });
-                                            },
-                                          ),
-                                          InkWell(
-                                            child: Image.asset(
-                                              "images/doaa2.jpg",
-                                              width: 100,
-                                              height: 100,
-                                            ),
-                                            onTap: () {
-                                              setState(() {
-                                                imageValue = 2;
-                                              });
-                                            },
-                                          ),
-                                        ],
+            body: SingleChildScrollView(
+              child: Column(children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(Icons.forward_outlined)),
+                    IconButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return Container(
+                                width: double.infinity,
+                                padding: EdgeInsets.all(16.0),
+                                child: Form(
+                                  key: _formKey,
+                                  child: Column(
+                                    children: <Widget>[
+                                      TextFormField(
+                                        decoration:
+                                            InputDecoration(labelText: 'Name'),
+                                        validator: (value) {
+                                          value as String;
+                                          if (value.isEmpty ||
+                                              value.length < 3 ||
+                                              value.length > 20) {
+                                            return "name must be more than 3 and less 20";
+                                          }
+                                          setState(() {
+                                            Newname = value;
+                                          });
+                                          return null;
+                                        },
                                       ),
-                                    ),
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        if (_formKey.currentState!.validate()) {
-                                          addItemToFormItems(
-                                              Newname, imageValue);
-                                        }
-                                        print(
-                                            _formKey.currentState!.validate());
-                                      },
-                                      child: Text('Submit'),
-                                    ),
-                                  ],
+                                      SizedBox(height: 20),
+                                      Expanded(
+                                        child: Row(
+                                          // mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            InkWell(
+                                              child: Image.asset(
+                                                "images/doaa2.jpg",
+                                                width: 100,
+                                                height: 100,
+                                              ),
+                                              onTap: () {
+                                                setState(() {
+                                                  imageValue = 0;
+                                                });
+                                              },
+                                            ),
+                                            InkWell(
+                                              child: Image.asset(
+                                                "images/doaa.jpg",
+                                                width: 100,
+                                                height: 100,
+                                              ),
+                                              onTap: () {
+                                                setState(() {
+                                                  imageValue = 1;
+                                                });
+                                              },
+                                            ),
+                                            InkWell(
+                                              child: Image.asset(
+                                                "images/doaa2.jpg",
+                                                width: 100,
+                                                height: 100,
+                                              ),
+                                              onTap: () {
+                                                setState(() {
+                                                  imageValue = 2;
+                                                });
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          if (_formKey.currentState!.validate()) {
+                                            addItemToFormItems(
+                                                Newname, imageValue);
+                                          }
+                                          print(
+                                              _formKey.currentState!.validate());
+                                        },
+                                        child: Text('Submit'),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                      icon: Icon(Icons.add))
-                ],
-              ),
-              Column(
-                children: formItems.map((e) {
-                  return item(e);
-                }).toList(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              (formItems.isNotEmpty && formItems.length >= 3)
-                  ? IconButton(
-                      onPressed: () {
-                        // Navigator.pushNamed(context, '/PlayScreen',
-                        //     arguments: indexs);
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PlayScreen(indexs),
-                          ),
-                        );
-                      },
-                      icon: Icon(Icons.play_arrow))
-                  : Text(""),
-            ]),
+                              );
+                            },
+                          );
+                        },
+                        icon: Icon(Icons.add))
+                  ],
+                ),
+                SingleChildScrollView(
+                  child: Column(
+                    children: formItems.map((e) {
+                      return item(e);
+                    }).toList(),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                (formItems.isNotEmpty && formItems.length >= 3)
+                    ? IconButton(
+                        onPressed: () {
+                  
+                           word = getRandomGess(indexs).toString() as String;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PlayScreen(indexs),
+                            ),
+                          );
+                        },
+                        icon: Icon(Icons.play_arrow))
+                    : Text(""),
+              ]),
+            ),
           )),
     );
   }
